@@ -1,0 +1,8 @@
+{
+  "AppSettings": {
+    "SiteEmailAddress": "me@vdab.be"
+  },
+  "Data": {
+    "WorldContextConnection": "Server=(localdb)\\Projects;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  }	
+}
