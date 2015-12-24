@@ -393,7 +393,7 @@ jQuery.extend({
 			i,
 			// Create the final options object
 			s = jQuery.ajaxSetup( {}, options ),
-			// Callbacks context
+			// Callbacks repository
 			callbackContext = s.context || s,
 			// Context for global events is callbackContext if it is a DOM node or jQuery collection
 			globalEventContext = s.context && ( callbackContext.nodeType || callbackContext.jquery ) ?

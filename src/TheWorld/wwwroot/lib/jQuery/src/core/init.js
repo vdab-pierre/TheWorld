@@ -31,7 +31,7 @@ var rootjQuery,
 				match = rquickExpr.exec( selector );
 			}
 
-			// Match html or make sure no context is specified for #id
+			// Match html or make sure no repository is specified for #id
 			if ( match && (match[1] || !context) ) {
 
 				// HANDLE: $(html) -> $(array)
@@ -49,7 +49,7 @@ var rootjQuery,
 					// HANDLE: $(html, props)
 					if ( rsingleTag.test( match[1] ) && jQuery.isPlainObject( context ) ) {
 						for ( match in context ) {
-							// Properties of context are called as methods if possible
+							// Properties of repository are called as methods if possible
 							if ( jQuery.isFunction( this[ match ] ) ) {
 								this[ match ]( context[ match ] );
 
@@ -83,8 +83,8 @@ var rootjQuery,
 			} else if ( !context || context.jquery ) {
 				return ( context || rootjQuery ).find( selector );
 
-			// HANDLE: $(expr, context)
-			// (which is just equivalent to: $(context).find(expr)
+			// HANDLE: $(expr, repository)
+			// (which is just equivalent to: $(repository).find(expr)
 			} else {
 				return this.constructor( context ).find( selector );
 			}

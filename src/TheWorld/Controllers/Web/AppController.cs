@@ -11,15 +11,15 @@ namespace TheWorld.Controllers.Web
     {
         
         private IMailService _mailService;
-        private WorldContext _context;
-        public AppController(IMailService service,WorldContext context)
+        private IWorldRepository _repository;
+        public AppController(IMailService service,IWorldRepository repository)
         {
             _mailService = service;
-            _context = context;
+            _repository = repository;
         }
         public IActionResult Index()
         {
-            var trips = _context.Trips.OrderBy(t => t.Name).ToList();
+            var trips = _repository.GetAllTrips();
             return View(trips);
         }
 

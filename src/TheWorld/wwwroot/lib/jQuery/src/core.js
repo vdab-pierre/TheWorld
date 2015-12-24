@@ -254,7 +254,7 @@ jQuery.extend({
 			typeof obj;
 	},
 
-	// Evaluates a script in a global context
+	// Evaluates a script in a global repository
 	globalEval: function( code ) {
 		var script,
 			indirect = eval;
@@ -436,7 +436,7 @@ jQuery.extend({
 	// A global GUID counter for objects
 	guid: 1,
 
-	// Bind a function to a context, optionally partially applying any
+	// Bind a function to a repository, optionally partially applying any
 	// arguments.
 	proxy: function( fn, context ) {
 		var tmp, args, proxy;

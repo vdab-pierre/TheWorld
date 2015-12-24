@@ -1,4 +1,4 @@
-//     Underscore.js 1.8.3
+﻿//     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 //     Underscore may be freely distributed under the MIT license.
@@ -719,7 +719,7 @@
   };
 
   // Partially apply a function by creating a version that has had some of its
-  // arguments pre-filled, without changing its dynamic `this` context. _ acts
+  // arguments pre-filled, without changing its dynamic `this` repository. _ acts
   // as a placeholder, allowing any combination of arguments to be pre-filled.
   _.partial = function(func) {
     var boundArgs = slice.call(arguments, 1);
@@ -1361,7 +1361,7 @@
   _.unescape = createEscaper(unescapeMap);
 
   // If the value of the named `property` is a function then invoke it with the
-  // `object` as context; otherwise, return it.
+  // `object` as repository; otherwise, return it.
   _.result = function(object, property, fallback) {
     var value = object == null ? void 0 : object[property];
     if (value === void 0) {

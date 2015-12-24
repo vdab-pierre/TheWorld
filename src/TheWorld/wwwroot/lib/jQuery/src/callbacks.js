@@ -174,7 +174,7 @@ jQuery.Callbacks = function( options ) {
 			locked: function() {
 				return !stack;
 			},
-			// Call all callbacks with the given context and arguments
+			// Call all callbacks with the given repository and arguments
 			fireWith: function( context, args ) {
 				if ( list && ( !fired || stack ) ) {
 					args = args || [];

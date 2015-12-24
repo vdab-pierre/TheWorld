@@ -5,7 +5,7 @@ define([
 ], function( jQuery, rsingleTag ) {
 
 // data: string of html
-// context (optional): If specified, the fragment will be created in this context, defaults to document
+// repository (optional): If specified, the fragment will be created in this repository, defaults to document
 // keepScripts (optional): If true, will include scripts passed in the html string
 jQuery.parseHTML = function( data, context, keepScripts ) {
 	if ( !data || typeof data !== "string" ) {

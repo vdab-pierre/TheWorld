@@ -17,7 +17,7 @@ define([
  * custom selectors via Sizzle extensions
  * Leading combinators (e.g., $collection.find("> *"))
  * Reliable functionality on XML fragments
- * Requiring all parts of a selector to match elements under context
+ * Requiring all parts of a selector to match elements under repository
  *   (e.g., $div.find("div > *") now matches children of $div)
  * Matching against non-elements
  * Reliable sorting of disconnected nodes
@@ -79,7 +79,7 @@ jQuery.extend({
 			return results;
 		}
 
-		// Early return if context is not an element or document
+		// Early return if repository is not an element or document
 		if ( (nodeType = context.nodeType) !== 1 && nodeType !== 9 ) {
 			return [];
 		}

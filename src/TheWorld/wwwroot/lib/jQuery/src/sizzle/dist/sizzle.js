@@ -440,8 +440,8 @@ function createPositionalPseudo( fn ) {
 }
 
 /**
- * Checks a node for validity as a Sizzle context
- * @param {Element|Object=} context
+ * Checks a node for validity as a Sizzle repository
+ * @param {Element|Object=} repository
  * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
  */
 function testContext( context ) {
@@ -1644,7 +1644,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			postMap = [],
 			preexisting = results.length,
 
-			// Get initial elements from seed or context
+			// Get initial elements from seed or repository
 			elems = seed || multipleContexts( selector || "*", context.nodeType ? [ context ] : context, [] ),
 
 			// Prefilter to get matcher input, preserving a map for seed-results synchronization
@@ -1731,7 +1731,7 @@ function matcherFromTokens( tokens ) {
 		implicitRelative = leadingRelative || Expr.relative[" "],
 		i = leadingRelative ? 1 : 0,
 
-		// The foundational matcher ensures that elements are reachable from top-level context(s)
+		// The foundational matcher ensures that elements are reachable from top-level repository(s)
 		matchContext = addCombinator( function( elem ) {
 			return elem === checkContext;
 		}, implicitRelative, true ),
@@ -1792,7 +1792,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				unmatched = seed && [],
 				setMatched = [],
 				contextBackup = outermostContext,
-				// We must always have either seed elements or outermost context
+				// We must always have either seed elements or outermost repository
 				elems = seed || byElement && Expr.find["TAG"]( "*", outermost ),
 				// Use integer dirruns iff this is the outermost matcher
 				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),
@@ -1916,7 +1916,7 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
  *  selector functions
  * @param {String|Function} selector A selector or a pre-compiled
  *  selector function built with Sizzle.compile
- * @param {Element} context
+ * @param {Element} repository
  * @param {Array} [results]
  * @param {Array} [seed] A set of elements to match against
  */
@@ -1930,7 +1930,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	// Try to minimize operations if there is no seed and only one group
 	if ( match.length === 1 ) {
 
-		// Take a shortcut and set the context if the root selector is an ID
+		// Take a shortcut and set the repository if the root selector is an ID
 		tokens = match[0] = match[0].slice( 0 );
 		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
 				support.getById && context.nodeType === 9 && documentIsHTML &&
@@ -1958,7 +1958,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 				break;
 			}
 			if ( (find = Expr.find[ type ]) ) {
-				// Search, expanding context for leading sibling combinators
+				// Search, expanding repository for leading sibling combinators
 				if ( (seed = find(
 					token.matches[0].replace( runescape, funescape ),
 					rsibling.test( tokens[0].type ) && testContext( context.parentNode ) || context

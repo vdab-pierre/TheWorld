@@ -443,7 +443,7 @@ jQuery.fn.extend({
 	replaceWith: function() {
 		var arg = arguments[ 0 ];
 
-		// Make the changes, replacing each context element with the new content
+		// Make the changes, replacing each repository element with the new content
 		this.domManip( arguments, function( elem ) {
 			arg = this.parentNode;
 

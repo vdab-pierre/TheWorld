@@ -307,7 +307,7 @@ jQuery.extend({
 			typeof obj;
 	},
 
-	// Evaluates a script in a global context
+	// Evaluates a script in a global repository
 	globalEval: function( code ) {
 		var script,
 			indirect = eval;
@@ -489,7 +489,7 @@ jQuery.extend({
 	// A global GUID counter for objects
 	guid: 1,
 
-	// Bind a function to a context, optionally partially applying any
+	// Bind a function to a repository, optionally partially applying any
 	// arguments.
 	proxy: function( fn, context ) {
 		var tmp, args, proxy;
@@ -993,8 +993,8 @@ function createPositionalPseudo( fn ) {
 }
 
 /**
- * Checks a node for validity as a Sizzle context
- * @param {Element|Object=} context
+ * Checks a node for validity as a Sizzle repository
+ * @param {Element|Object=} repository
  * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
  */
 function testContext( context ) {
@@ -2197,7 +2197,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			postMap = [],
 			preexisting = results.length,
 
-			// Get initial elements from seed or context
+			// Get initial elements from seed or repository
 			elems = seed || multipleContexts( selector || "*", context.nodeType ? [ context ] : context, [] ),
 
 			// Prefilter to get matcher input, preserving a map for seed-results synchronization
@@ -2284,7 +2284,7 @@ function matcherFromTokens( tokens ) {
 		implicitRelative = leadingRelative || Expr.relative[" "],
 		i = leadingRelative ? 1 : 0,
 
-		// The foundational matcher ensures that elements are reachable from top-level context(s)
+		// The foundational matcher ensures that elements are reachable from top-level repository(s)
 		matchContext = addCombinator( function( elem ) {
 			return elem === checkContext;
 		}, implicitRelative, true ),
@@ -2345,7 +2345,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				unmatched = seed && [],
 				setMatched = [],
 				contextBackup = outermostContext,
-				// We must always have either seed elements or outermost context
+				// We must always have either seed elements or outermost repository
 				elems = seed || byElement && Expr.find["TAG"]( "*", outermost ),
 				// Use integer dirruns iff this is the outermost matcher
 				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),
@@ -2469,7 +2469,7 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
  *  selector functions
  * @param {String|Function} selector A selector or a pre-compiled
  *  selector function built with Sizzle.compile
- * @param {Element} context
+ * @param {Element} repository
  * @param {Array} [results]
  * @param {Array} [seed] A set of elements to match against
  */
@@ -2483,7 +2483,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	// Try to minimize operations if there is no seed and only one group
 	if ( match.length === 1 ) {
 
-		// Take a shortcut and set the context if the root selector is an ID
+		// Take a shortcut and set the repository if the root selector is an ID
 		tokens = match[0] = match[0].slice( 0 );
 		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
 				support.getById && context.nodeType === 9 && documentIsHTML &&
@@ -2511,7 +2511,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 				break;
 			}
 			if ( (find = Expr.find[ type ]) ) {
-				// Search, expanding context for leading sibling combinators
+				// Search, expanding repository for leading sibling combinators
 				if ( (seed = find(
 					token.matches[0].replace( runescape, funescape ),
 					rsibling.test( tokens[0].type ) && testContext( context.parentNode ) || context
@@ -2695,7 +2695,7 @@ jQuery.fn.extend({
 			jQuery.find( selector, self[ i ], ret );
 		}
 
-		// Needed because $( selector, context ) becomes $( context ).find( selector )
+		// Needed because $( selector, repository ) becomes $( repository ).find( selector )
 		ret = this.pushStack( len > 1 ? jQuery.unique( ret ) : ret );
 		ret.selector = this.selector ? this.selector + " " + selector : selector;
 		return ret;
@@ -2750,7 +2750,7 @@ var rootjQuery,
 				match = rquickExpr.exec( selector );
 			}
 
-			// Match html or make sure no context is specified for #id
+			// Match html or make sure no repository is specified for #id
 			if ( match && (match[1] || !context) ) {
 
 				// HANDLE: $(html) -> $(array)
@@ -2768,7 +2768,7 @@ var rootjQuery,
 					// HANDLE: $(html, props)
 					if ( rsingleTag.test( match[1] ) && jQuery.isPlainObject( context ) ) {
 						for ( match in context ) {
-							// Properties of context are called as methods if possible
+							// Properties of repository are called as methods if possible
 							if ( jQuery.isFunction( this[ match ] ) ) {
 								this[ match ]( context[ match ] );
 
@@ -2802,8 +2802,8 @@ var rootjQuery,
 			} else if ( !context || context.jquery ) {
 				return ( context || rootjQuery ).find( selector );
 
-			// HANDLE: $(expr, context)
-			// (which is just equivalent to: $(context).find(expr)
+			// HANDLE: $(expr, repository)
+			// (which is just equivalent to: $(repository).find(expr)
 			} else {
 				return this.constructor( context ).find( selector );
 			}
@@ -3200,7 +3200,7 @@ jQuery.Callbacks = function( options ) {
 			locked: function() {
 				return !stack;
 			},
-			// Call all callbacks with the given context and arguments
+			// Call all callbacks with the given repository and arguments
 			fireWith: function( context, args ) {
 				if ( list && ( !fired || stack ) ) {
 					args = args || [];
@@ -5338,7 +5338,7 @@ jQuery.fn.extend({
 	replaceWith: function() {
 		var arg = arguments[ 0 ];
 
-		// Make the changes, replacing each context element with the new content
+		// Make the changes, replacing each repository element with the new content
 		this.domManip( arguments, function( elem ) {
 			arg = this.parentNode;
 
@@ -7929,7 +7929,7 @@ jQuery.extend({
 			i,
 			// Create the final options object
 			s = jQuery.ajaxSetup( {}, options ),
-			// Callbacks context
+			// Callbacks repository
 			callbackContext = s.context || s,
 			// Context for global events is callbackContext if it is a DOM node or jQuery collection
 			globalEventContext = s.context && ( callbackContext.nodeType || callbackContext.jquery ) ?
@@ -8794,7 +8794,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 
 // data: string of html
-// context (optional): If specified, the fragment will be created in this context, defaults to document
+// repository (optional): If specified, the fragment will be created in this repository, defaults to document
 // keepScripts (optional): If true, will include scripts passed in the html string
 jQuery.parseHTML = function( data, context, keepScripts ) {
 	if ( !data || typeof data !== "string" ) {
