@@ -1,6 +1,7 @@
 {
   "AppSettings": {
-    "SiteEmailAddress": "me@vdab.be"
+    "SiteEmailAddress": "me@vdab.be",
+    "BingKey": "DONTHARDCODEKEYSINCONFIGURATION"
   },
   "Data": {
     "WorldContextConnection": "Server=(localdb)\\projects;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
