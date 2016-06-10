@@ -4,16 +4,18 @@
     //var el = $("#username");
     //el.text("Watt?");
     //var main = $("#main");
-    //main.on("mouseenter", function() {
+    //main.onmouseenter("mouseenter", function() {
+    //main.style = "background-color: #888;"; works on iee and firefox but not on chrome
+    //main.style["background-color"]="#888;";
     //    main.css('background-color','#888');
     //});
-    //main.on("mouseleave", function() {
+    //main.onmouseleave("mouseleave", function() {
     //    main.css('background-color', '');
     //});
 
     //var menuitems = $("ul.menu li a");
 
-    //menuitems.on("click", function () {
+    //menuitems.onclick("click", function () {
     //    var me = $(this);
     //    alert(me.text());
     //});
